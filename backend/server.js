@@ -3,13 +3,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 
 const app = express();
 
-// app.use(cookieParser());
+app.use(cookieParser());
 
 app.use(
   "*",
@@ -33,6 +33,7 @@ app.post("/cookie", (req, res) => {
   // });
 
   const cookieOptions = {
+    httpOnly: true,
     secure: true,
     sameSite: 'none',
     maxAge: 60 * 60 * 1000 // 1 hour
