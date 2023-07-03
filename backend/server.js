@@ -49,7 +49,6 @@ app.post("/cokie", (req,res)=>{
   res.send(token);
 
 })
-const token = req.cookies.refreshToken;
 
 
 // mongoose connect
