@@ -35,7 +35,7 @@ app.post("/cookie", (req, res) => {
 
   res.cookie('myCookie', 'cookieValue', {
     maxAge: 3600000,
-    httpOnly: false,
+    // httpOnly: false,
     // secure: true,
     // sameSite: 'none'
   });
