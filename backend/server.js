@@ -43,9 +43,11 @@ app.post("/cookie", (req, res) => {
 });
 
 app.post("/cokie", (req,res)=>{
-  const token = req.cookies.refreshToken;
+
+  const token = req.cookies.myCookie;
   console.log(token)
   res.send(token);
+
 })
 const token = req.cookies.refreshToken;
 
