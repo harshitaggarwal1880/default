@@ -1,4 +1,4 @@
-const cookie = require('cookie');
+const cookie = require("cookie");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
 
 app.post("/cookie", (req, res) => {
   res.cookie("cookie", "Hello", {
-    secure: true,
-    sameSite: 'none',
+    httpOnly: false,
+    SameSite: "None",
     maxAge: 60 * 60 * 60 * 1000,
   });
 
@@ -42,7 +42,7 @@ app.post("/cookie", (req, res) => {
   // const cookieValue = 'Hello';
 
   // res.setHeader('Set-Cookie', cookie.serialize('cookie', cookieValue, cookieOptions));
-  res.send('Cookie set successfully!');
+  res.send("Cookie set successfully!");
   // res.status(200).json({ message: "Your Cookie set" });
 });
 
