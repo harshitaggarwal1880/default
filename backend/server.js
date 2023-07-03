@@ -29,6 +29,7 @@ app.post("/cookie", (req, res) => {
   res.cookie("cookie", "Hello", {
     httpOnly: false,
     SameSite: "None",
+    secure: true,
     maxAge: 60 * 60 * 60 * 1000,
   });
 
