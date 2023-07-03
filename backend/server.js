@@ -25,13 +25,23 @@ app.get("/", (req, res) => {
 });
 
 app.post("/cookie", (req, res) => {
-  res.cookie("cookie", "Hello", {
-    maxAge: 60 * 60 * 60 * 1000,
-    sameSite: 'none',
-    secure: true,
-  });
+  // res.cookie("cookie", "Hello", {
+  //   secure: true,
+  //   sameSite: 'none',
+  //   maxAge: 60 * 60 * 60 * 1000,
+  // });
 
-  res.status(200).json({ message: "Your Cookie set" });
+  const cookieOptions = {
+    secure: true,
+    sameSite: 'none',
+    maxAge: 60 * 60 * 1000 // 1 hour
+  };
+
+  const cookieValue = 'Hello';
+
+  res.setHeader('Set-Cookie', cookie.serialize('cookie', cookieValue, cookieOptions));
+  res.send('Cookie set successfully!');
+  // res.status(200).json({ message: "Your Cookie set" });
 });
 
 // mongoose connect
