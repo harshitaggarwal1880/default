@@ -26,22 +26,22 @@ app.get("/", (req, res) => {
 });
 
 app.post("/cookie", (req, res) => {
-  // res.cookie("cookie", "Hello", {
-  //   secure: true,
-  //   sameSite: 'none',
-  //   maxAge: 60 * 60 * 60 * 1000,
-  // });
-
-  const cookieOptions = {
-    httpOnly: true,
+  res.cookie("cookie", "Hello", {
     secure: true,
     sameSite: 'none',
-    maxAge: 60 * 60 * 1000 // 1 hour
-  };
+    maxAge: 60 * 60 * 60 * 1000,
+  });
 
-  const cookieValue = 'Hello';
+  // const cookieOptions = {
+  //   httpOnly: true,
+  //   secure: true,
+  //   sameSite: 'none',
+  //   maxAge: 60 * 60 * 1000 // 1 hour
+  // };
 
-  res.setHeader('Set-Cookie', cookie.serialize('cookie', cookieValue, cookieOptions));
+  // const cookieValue = 'Hello';
+
+  // res.setHeader('Set-Cookie', cookie.serialize('cookie', cookieValue, cookieOptions));
   res.send('Cookie set successfully!');
   // res.status(200).json({ message: "Your Cookie set" });
 });
