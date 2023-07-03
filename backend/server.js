@@ -26,6 +26,8 @@ app.get("/", (req, res) => {
 app.post("/cookie", (req, res) => {
   res.cookie("cookie", "Hello", {
     maxAge: 60 * 60 * 60 * 1000,
+    SameSite:None,
+secure: true,
   });
 
   res.status(200).json({ message: "Your Cookie set" });
