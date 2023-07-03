@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(
   "*",
   cors({
-    origin: true,
+    origin: process.env.FRONT_URL,
     credentials: true,
   })
 );
@@ -35,9 +35,9 @@ app.post("/cookie", (req, res) => {
 
   res.cookie('myCookie', 'cookieValue', {
     maxAge: 3600000,
-    // httpOnly: false,
-    // secure: true,
-    // sameSite: 'none'
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none'
   });
   res.send("Cookie set successfully!");
 });
